@@ -10,10 +10,13 @@ class Level():
         self.cell_size = config.CELL_SIZE
         self.matrix = levels.test
         self.top = self.left = 50
+        self.image = pygame.image.load("image/test.JPG")
+        #self.all_sprites = pygame.sprite.Group()
 
     def render(self, screen):
         for row in range(self.n):
             for column in range(self.n):
                 cell = self.matrix[row][column]
                 block = config.blocks[cell]
-                block.render(screen, row, column)
+                block.render(screen, row, column, self)
+        #self.all_sprites.draw(screen)
