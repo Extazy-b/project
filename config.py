@@ -1,6 +1,12 @@
+from blocks import Float, Wall, Water, Space
 N = 20
 CELL_SIZE = 25
-render_rulls = {" ": (255, 0, 0),
-                "_": (0, 255, 0),
-                "X": (0, 0, 255),
-                "": (0, 0, 0)}
+blocks = {" ": Float(),
+          "_": Water(),
+          "X": Wall(),
+          "": Space()}
+keys = {"w": 26,
+        "a": 4,
+        "s": 22,
+        "d": 7,}
+indent = 50

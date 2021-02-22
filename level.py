@@ -1,6 +1,7 @@
 import config
 import levels
 import pygame
+import blocks
 
 class Level():
     def __init__(self, level_n):
@@ -14,23 +15,5 @@ class Level():
         for row in range(self.n):
             for column in range(self.n):
                 cell = self.matrix[row][column]
-                rect = pygame.Rect(self.cell_size * column + self.left, self.cell_size * row + self.top, 
-                                   self.cell_size, self.cell_size)
-                pygame.draw.rect(screen, config.render_rulls[cell], rect)
-                pygame.draw.rect(screen, (255, 255, 255), rect, 1)
-
-
-if __name__ == '__main__':
-    pygame.init()
-    pygame.display.set_caption('test')
-    size = width, height = 600, 600
-    screen = pygame.display.set_mode(size)
-    board = Level(1)
-    running = True
-    while running:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
-        screen.fill(pygame.Color('black'))
-        board.render(screen)
-        pygame.display.flip()
+                block = config.blocks[cell]
+                block.render(screen, row, column)
