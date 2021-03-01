@@ -1,8 +1,6 @@
 import pygame
-from level import Level
-from player import Player
-from enemy import Enemy
-from functions import start_cords_generstion, get_enemy_info, get_matrix, create_button, move_to_button_check, active_button_mark
+from os import system
+from functions import create_button, move_to_button_check, active_button_mark
 
 
 def menu_render(screen, fps, clock):
@@ -38,6 +36,8 @@ def menu_render(screen, fps, clock):
                         exit()
                     if active_button == "Continue":
                         running = False 
+                    if active_button == "Management":
+                        system("management.py")
        
         for title in figures:
             create_button(screen, figures[title], title, 60, "stone_texture")
@@ -49,4 +49,3 @@ def menu_render(screen, fps, clock):
             create_button(screen, buttons[title], title, 30, "lava_texture")
 
         pygame.display.flip()
-        clock.tick(fps)
